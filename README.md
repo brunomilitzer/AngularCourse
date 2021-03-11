@@ -12,4 +12,5 @@
 4. [Services](https://github.com/brunomilitzer/AngularCourse/tree/main/services)
 5. [Routing](https://github.com/brunomilitzer/AngularCourse/tree/main/routing)
 6. [Observable](https://github.com/brunomilitzer/AngularCourse/tree/main/observable)
-7. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
+7. [Forms](https://github.com/brunomilitzer/AngularCourse/tree/main/forms-td)
+8. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
