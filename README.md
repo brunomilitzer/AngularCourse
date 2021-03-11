@@ -8,6 +8,8 @@
 
 1. [My First App](https://github.com/brunomilitzer/AngularCourse/tree/main/my-first-app)
 2. [Databinding](https://github.com/brunomilitzer/AngularCourse/tree/main/databinding)
-3. [Routing](https://github.com/brunomilitzer/AngularCourse/tree/main/routing)
-4. [Observable](https://github.com/brunomilitzer/AngularCourse/tree/main/observable)
-5. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
+3. [Directives](https://github.com/brunomilitzer/AngularCourse/tree/main/directives)
+4. [Services](https://github.com/brunomilitzer/AngularCourse/tree/main/services)
+5. [Routing](https://github.com/brunomilitzer/AngularCourse/tree/main/routing)
+6. [Observable](https://github.com/brunomilitzer/AngularCourse/tree/main/observable)
+7. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
