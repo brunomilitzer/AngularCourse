@@ -14,4 +14,6 @@
 6. [Observable](https://github.com/brunomilitzer/AngularCourse/tree/main/observable)
 7. [Forms](https://github.com/brunomilitzer/AngularCourse/tree/main/forms-td)
 8. [Pipes](https://github.com/brunomilitzer/AngularCourse/tree/main/pipes)
-9. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
+9. [Pipes](https://github.com/brunomilitzer/AngularCourse/tree/main/http)
+10. [Pipes](https://github.com/brunomilitzer/AngularCourse/tree/main/http-post)
+11. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
