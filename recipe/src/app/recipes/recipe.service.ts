@@ -7,19 +7,14 @@ import {Subject} from 'rxjs';
 @Injectable()
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
-
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Coxinha Recipe',
-      'This is a recipe of Coxinha',
-      'https://omnomculture.files.wordpress.com/2013/09/dsc_0066.jpg',
-      [
-        new Ingredient('Chicken', 2),
-        new Ingredient('Flour', 3)
-      ])
-  ];
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {
+  }
+
+  setRecipes(recipes: Recipe[]): void {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
   getRecipes(): Recipe[] {
