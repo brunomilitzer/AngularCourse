@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light py-0 pt-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Recipe Book</a>
+    <a class="navbar-brand" routerLink="/">Recipe Book</a>
     <div class="collapse navbar-collapse">
       <ul class="nav nav-tabs">
         <li class="nav-item" *ngIf="!isAuthenticated"><a class="nav-link" routerLinkActive="active" routerLink="/auth">Authenticate</a></li>
@@ -11,7 +11,7 @@
       <div class="ml-auto">
         <ul class="navbar-nav">
           <li class="nav-item" *ngIf="isAuthenticated">
-            <a class="nav-link" role="button" style="cursor: pointer;">Logout</a>
+            <a class="nav-link" role="button" style="cursor: pointer;" (click)="onLogout()">Logout</a>
           </li>
           <li class="nav-item dropdown" *ngIf="isAuthenticated">
             <a class="nav-link dropdown-toggle" role="button" style="cursor: pointer;" appDropdown>Manage</a>
