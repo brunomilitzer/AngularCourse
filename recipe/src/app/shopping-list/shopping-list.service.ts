@@ -6,35 +6,35 @@ export class ShoppingListService {
   startedEditing = new Subject<number>();
 
   private ingredients: Ingredient[] = [
-    new Ingredient('Chicken', 2),
-    new Ingredient('Flour', 1)
+    new Ingredient( 'Chicken', 2 ),
+    new Ingredient( 'Flour', 1 )
   ];
 
   getIngredients(): Ingredient[] {
     return this.ingredients.slice();
   }
 
-  getIngredient(index: number): Ingredient {
+  getIngredient( index: number ): Ingredient {
     return this.ingredients[index];
   }
 
-  addIngredient(ingredient: Ingredient): void {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.ingredients.slice());
+  addIngredient( ingredient: Ingredient ): void {
+    this.ingredients.push( ingredient );
+    this.ingredientsChanged.next( this.ingredients.slice() );
   }
 
-  addIngredients(ingredients: Ingredient[]): void {
-    this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.ingredients.slice());
+  addIngredients( ingredients: Ingredient[] ): void {
+    this.ingredients.push( ...ingredients );
+    this.ingredientsChanged.next( this.ingredients.slice() );
   }
 
-  updateIngredient(index: number, newIngredient: Ingredient): void {
+  updateIngredient( index: number, newIngredient: Ingredient ): void {
     this.ingredients[index] = newIngredient;
-    this.ingredientsChanged.next(this.ingredients.slice());
+    this.ingredientsChanged.next( this.ingredients.slice() );
   }
 
-  deleteIngredient(index: number): void {
-    this.ingredients.splice(index, 1);
-    this.ingredientsChanged.next(this.ingredients.slice());
+  deleteIngredient( index: number ): void {
+    this.ingredients.splice( index, 1 );
+    this.ingredientsChanged.next( this.ingredients.slice() );
   }
 }
