@@ -1,5 +1,7 @@
+import { environment } from '../../environments/environment';
+
 export abstract class DbCredentialsService {
-  private API_KEY = 'AIzaSyDrNBRlKoUkhzGWGaf40xaS3KmOBECpqCQ';
+  private API_KEY = environment.firebaseAPIKey;
   private URL = 'https://recipe-869ba-default-rtdb.europe-west1.firebasedatabase.app/';
   private SCHEMA = 'recipes.json';
   private SIGN_UP_ENDPOINT = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
