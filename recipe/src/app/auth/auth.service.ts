@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { DbCredentialsService } from '../shared/db-credentials.service';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { User } from './user.model';
 import { Router } from '@angular/router';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { DbCredentialsService } from '../shared/db-credentials.service';
+import { User } from './user.model';
+import * as fromApp from '../store/app.reducer';
+import * as AuthActions from './store/auth.actions';
 
 export interface AuthResponseData {
   idToken: string;
@@ -19,10 +22,10 @@ export interface AuthResponseData {
   providedIn: 'root'
 } )
 export class AuthService extends DbCredentialsService {
-  user = new BehaviorSubject<User>( null );
+  /*user = new BehaviorSubject<User>( null );*/
   private tokenExpirationTimer: any;
 
-  constructor( private http: HttpClient, private router: Router ) {
+  constructor( private http: HttpClient, private router: Router, private store: Store<fromApp.AppState> ) {
     super();
   }
 
@@ -61,14 +64,19 @@ export class AuthService extends DbCredentialsService {
     const loadedUser = new User( userData.email, userData.id, userData._TOKEN, new Date( userData._TOKEN_EXPIRATION_DATE ) );
 
     if ( loadedUser.token ) {
-      this.user.next( loadedUser );
+      this.store.dispatch( new AuthActions.Login( {
+        email: loadedUser.email,
+        userId: loadedUser.id,
+        token: loadedUser.token,
+        expirationDate: new Date( userData._TOKEN_EXPIRATION_DATE )
+      } ) );
       const expirationDuration = new Date( userData._TOKEN_EXPIRATION_DATE ).getTime() - new Date().getTime();
       this.autoLogout( expirationDuration );
     }
   }
 
   logout(): void {
-    this.user.next( null );
+    this.store.dispatch( new AuthActions.Logout() );
     this.router.navigate( [ '/auth' ] );
 
     localStorage.removeItem( 'userData' );
@@ -88,7 +96,7 @@ export class AuthService extends DbCredentialsService {
     const expirationDate = new Date( new Date().getTime() + expiresIn * 1000 );
     const user = new User( email, userId, token, expirationDate );
 
-    this.user.next( user );
+    this.store.dispatch( new AuthActions.Login( { email, userId, token, expirationDate } ) );
     this.autoLogout( expiresIn * 1000 );
     localStorage.setItem( 'userData', JSON.stringify( user ) );
   }
