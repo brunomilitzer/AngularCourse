@@ -1,5 +1,4 @@
 import { Ingredient } from '../../shared/Ingredient.model';
-import { Action } from '@ngrx/store';
 import * as SLActions from './shopping-list.actions';
 
 export interface AppState {
@@ -23,7 +22,7 @@ const initialState: State = {
 
 export function shoppingListReducer(
   state = initialState,
-  action: SLActions.ShoppingListActions ): { ingredients: (Ingredient | Action)[] } {
+  action: SLActions.ShoppingListActions ): State {
 
   switch ( action.type ) {
     case SLActions.ADD_INGREDIENT:
@@ -35,6 +34,42 @@ export function shoppingListReducer(
       return {
         ...state,
         ingredients: [ ...state.ingredients, ...action.payload ]
+      };
+    case SLActions.UPDATE_INGREDIENT:
+      const ingredient = state.ingredients[state.editedIngredientIndex];
+      const updatedIngredient = {
+        ...ingredient,
+        ...action.payload
+      };
+      const updatedIngredients = [ ...state.ingredients ];
+      updatedIngredients[state.editedIngredientIndex] = updatedIngredient;
+
+      return {
+        ...state,
+        ingredients: updatedIngredients,
+        editedIngredientIndex: -1,
+        editedIngredient: null
+      };
+    case SLActions.DELETE_INGREDIENT:
+      return {
+        ...state,
+        ingredients: state.ingredients.filter( ( ig, igIndex ) => {
+          return igIndex !== state.editedIngredientIndex;
+        } ),
+        editedIngredientIndex: -1,
+        editedIngredient: null
+      };
+    case SLActions.START_EDIT:
+      return {
+        ...state,
+        editedIngredientIndex: action.payload,
+        editedIngredient: { ...state.ingredients[action.payload] }
+      };
+    case SLActions.STOP_EDIT:
+      return {
+        ...state,
+        editedIngredient: null,
+        editedIngredientIndex: -1
       };
     default:
       return state;

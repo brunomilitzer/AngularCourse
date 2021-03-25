@@ -10,10 +10,6 @@ export class ShoppingListService {
     new Ingredient( 'Bread', 1 )
   ];
 
-  getIngredient( index: number ): Ingredient {
-    return this.ingredients[index];
-  }
-
   updateIngredient( index: number, newIngredient: Ingredient ): void {
     this.ingredients[index] = newIngredient;
     this.ingredientsChanged.next( this.ingredients.slice() );
