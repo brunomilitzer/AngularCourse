@@ -9,12 +9,17 @@ const initialState = {
   ]
 };
 
-export function shoppingListReducer( state = initialState, action: SLActions.AddIngredient ): { ingredients: (Ingredient | Action)[] } {
+export function shoppingListReducer( state = initialState, action: SLActions.ShoppingListActions ): { ingredients: (Ingredient | Action)[] } {
   switch ( action.type ) {
     case SLActions.ADD_INGREDIENT:
       return {
         ...state,
         ingredients: [ ...state.ingredients, action.payload ]
+      };
+    case SLActions.ADD_INGREDIENTS:
+      return {
+        ...state,
+        ingredients: [ ...state.ingredients, ...action.payload ]
       };
     default:
       return state;

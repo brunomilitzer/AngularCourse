@@ -10,17 +10,8 @@ export class ShoppingListService {
     new Ingredient( 'Bread', 1 )
   ];
 
-  getIngredients(): Ingredient[] {
-    return this.ingredients.slice();
-  }
-
   getIngredient( index: number ): Ingredient {
     return this.ingredients[index];
-  }
-
-  addIngredient( ingredient: Ingredient ): void {
-    this.ingredients.push( ingredient );
-    this.ingredientsChanged.next( this.ingredients.slice() );
   }
 
   addIngredients( ingredients: Ingredient[] ): void {
