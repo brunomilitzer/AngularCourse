@@ -23,21 +23,12 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  getRecipe( index: number ): Recipe {
-    return this.recipes[index];
-  }
-
   addIngredientsToShoppingList( ingredients: Ingredient[] ): void {
     this.store.dispatch( new SLActions.AddIngredients( ingredients ) );
   }
 
   addRecipe( recipe: Recipe ): void {
     this.recipes.push( recipe );
-    this.recipesChanged.next( this.recipes.slice() );
-  }
-
-  updateRecipe( index: number, recipe: Recipe ): void {
-    this.recipes[index] = recipe;
     this.recipesChanged.next( this.recipes.slice() );
   }
 
