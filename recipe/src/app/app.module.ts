@@ -22,7 +22,7 @@ import * as fromApp from './store/app.reducer';
     HeaderComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot( fromApp.appReducer ),
