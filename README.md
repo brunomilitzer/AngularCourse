@@ -18,3 +18,4 @@
 10. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
 11. [Animations](https://github.com/brunomilitzer/AngularCourse/tree/main/animations)
 12. [Service Workers](https://github.com/brunomilitzer/AngularCourse/tree/main/pwa)
+13. [Tests](https://github.com/brunomilitzer/AngularCourse/tree/main/tests)
