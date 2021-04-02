@@ -17,3 +17,4 @@
 9. [http](https://github.com/brunomilitzer/AngularCourse/tree/main/http-post)
 10. [Recipe](https://github.com/brunomilitzer/AngularCourse/tree/main/recipe)
 11. [Animations](https://github.com/brunomilitzer/AngularCourse/tree/main/animations)
+12. [Service Workers](https://github.com/brunomilitzer/AngularCourse/tree/main/pwa)
