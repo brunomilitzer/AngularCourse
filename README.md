@@ -1,6 +1,7 @@
 # Udemy Course
 
 ## [Angular - The Complete Guide](https://github.com/brunomilitzer/AngularCourse)
+### [Certificate] (https://www.udemy.com/certificate/UC-4386a620-02a6-4703-ad07-26230adef934/)
 
 
 
