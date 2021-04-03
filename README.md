@@ -19,3 +19,4 @@
 11. [Animations](https://github.com/brunomilitzer/AngularCourse/tree/main/animations)
 12. [Service Workers](https://github.com/brunomilitzer/AngularCourse/tree/main/pwa)
 13. [Tests](https://github.com/brunomilitzer/AngularCourse/tree/main/tests)
+14. [Angular Config](https://github.com/brunomilitzer/AngularCourse/tree/main/angular-config)
